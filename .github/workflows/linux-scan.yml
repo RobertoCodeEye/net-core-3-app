@@ -28,7 +28,7 @@ jobs:
 
       - name: Download IRIS Scanner CLI 
         run: | 
-          wget -q -O "https://iris.codeeyesolutions.com/assets/onprem/v2/iris-scanner-cli"
+          wget -q -O https://iris.codeeyesolutions.com/assets/onprem/v2/iris-scanner-cli
           chmod +x iris-scanner-cli
       
       - name: Run Scan 
