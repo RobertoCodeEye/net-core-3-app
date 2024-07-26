@@ -8,9 +8,9 @@ jobs:
     steps:
     - name: Set up JSON content
       run: |
-        jsonContent=$(jq -n --arg nombre "${{ secrets.nombre }}" --arg apellido "${{ secrets.apellido }}" \
-                    '{nombre: $nombre, apellido: $apellido}')
+        jsonContent=$(jq -n --arg projectId "${{ secrets.PROJECT_ID }}" --arg jwt "${{ secrets.IRIS_JWT }}" \
+                    '{projectId: $projectId, jwt_auth: $jwt}')
         echo "JSON Content: $jsonContent"
-      env:
-        nombre: ${{ secrets.nombre }}
-        apellido: ${{ secrets.apellido }}
+        echo $jsonContent > iris.settings.json
+        cat iris.settings.json
+        dir
