@@ -33,8 +33,8 @@ jobs:
       
       - name: Run Scan 
         run: |
-          commitId = "${{ github.sha }}"
-          shortCommitId = "LinuxPR-"+$commitId.Substring(0, 8)
-          currentDirectory = (Get-Location).Path
-          solutionFile = $currentDirectory + "\Northwind.sln"
+          commitId=$(git rev-parse HEAD)
+          shortCommitId="LinuxPR-"+$(echo $commit_id | cut -c 1-8)
+          currentDirectory=$PWD
+          solutionFile=$currentDirectory+"\Northwind.sln"
           .\iris-scanner-cli -s $currentDirectory -sln $solutionFile -r $shortCommitId
