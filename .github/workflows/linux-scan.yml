@@ -1,0 +1,16 @@
+name: Linux_IRIS_Scan
+
+on: [push, pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up JSON content
+      run: |
+        jsonContent=$(jq -n --arg nombre "${{ secrets.nombre }}" --arg apellido "${{ secrets.apellido }}" \
+                    '{nombre: $nombre, apellido: $apellido}')
+        echo "JSON Content: $jsonContent"
+      env:
+        nombre: ${{ secrets.nombre }}
+        apellido: ${{ secrets.apellido }}
