@@ -28,7 +28,7 @@ jobs:
 
       - name: Download IRIS Scanner CLI 
         run: | 
-          Invoke-WebRequest -Uri "https://iris.codeeyesolutions.com/assets/onprem/v2/iris-scanner-cli" -OutFile "iris-scanner-cli"
+          wget -q -O "https://iris.codeeyesolutions.com/assets/onprem/v2/iris-scanner-cli"
           chmod +x iris-scanner-cli
       
       - name: Run Scan 
