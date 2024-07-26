@@ -37,4 +37,4 @@ jobs:
           shortCommitId="LinuxPR-"+$(echo $commit_id | cut -c 1-8)
           currentDirectory=$PWD
           solutionFile=$currentDirectory+"\Northwind.sln"
-          .\iris-scanner-cli -s $currentDirectory -sln $solutionFile -r $shortCommitId
+          ./iris-scanner-cli -s $currentDirectory -sln $solutionFile -r $shortCommitId
