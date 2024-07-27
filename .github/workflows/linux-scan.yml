@@ -34,7 +34,7 @@ jobs:
       - name: Run Scan 
         run: |
           commitId=$(git rev-parse HEAD)
-          shortCommitId="LinuxPR-"+${GITHUB_SHA::8}
+          shortCommitId="PR-"${GITHUB_SHA::8}
           currentDirectory=$PWD
           solutionFile=$currentDirectory+"\Northwind.sln"
           ./iris-scanner-cli -s $currentDirectory -sln $solutionFile -r $shortCommitId
